@@ -1,0 +1,20 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    id: "Build Docker image"
+    args:
+      - "build"
+      - "-t"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/cloud-build-demo/student-app:$SHORT_SHA"
+      - "."
+
+  - name: "gcr.io/cloud-builders/docker"
+    id: "Push Docker image"
+    args:
+      - "push"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/cloud-build-demo/student-app:$SHORT_SHA"
+
+images:
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/cloud-build-demo/student-app:$SHORT_SHA"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
