@@ -1,4 +1,4 @@
-steps:
+steps: 
   - name: "gcr.io/cloud-builders/docker"
     id: "Build Docker image"
     args:
@@ -6,7 +6,7 @@ steps:
       - "-t"
       - "us-central1-docker.pkg.dev/$PROJECT_ID/cloud-build-demo/student-app:$SHORT_SHA"
       - "."
-
+## sample-demo-commit messages
   - name: "gcr.io/cloud-builders/docker"
     id: "Push Docker image"
     args:
